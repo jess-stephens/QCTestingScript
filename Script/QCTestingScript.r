@@ -7,9 +7,9 @@ library(readxl)
 setwd("~/Work Material/USAID/ICPI/VL/QC/QCTestingScript")
 
 # Read in  dataset. Make sure to change your the file name to yours
-df<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210207_Haiti.txt") %>% 
+df<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210212_Eswatini.txt") %>% 
   mutate(pre_rgnlztn_hq_mech_code = as.character(pre_rgnlztn_hq_mech_code))
-df1<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210207_Mozambique.txt")%>% 
+df1<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210212_Mozambique.txt")%>% 
   mutate(pre_rgnlztn_hq_mech_code = as.character(pre_rgnlztn_hq_mech_code))
 
 glimpse(df)
@@ -53,4 +53,4 @@ unique(netnew$standardizeddisaggregate)
 # Combine all subset datasets
 fdf<-bind_rows(txcurr, txpvls, pmtctart, netnew, lab)
 
-write_tsv(fdf, "Data/HaMozPanoQC20210208", na = " ")
+write_tsv(fdf, "Data/EsMozPanoQC20210216", na = " ")
