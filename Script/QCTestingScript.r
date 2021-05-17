@@ -4,13 +4,17 @@ library(tidyverse)
 library(readxl)
 
 #set working directory to find data
-setwd("~/Work Material/USAID/ICPI/VL/QC/QCTestingScript")
+setwd("C:/Users/jStephens/Documents/ICPI/QC/FY21Q2i")
 
 # Read in  dataset. Make sure to change your the file name to yours
-df<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210212_Eswatini.txt") %>% 
+df<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210514_Eswatini.txt") %>% 
   mutate(pre_rgnlztn_hq_mech_code = as.character(pre_rgnlztn_hq_mech_code))
-df1<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210212_Mozambique.txt")%>% 
+df1<-read_tsv("Data/test_MER_Structured_Datasets_PSNU_IM_FY19-21_20210514_Mozambique.txt")%>% 
   mutate(pre_rgnlztn_hq_mech_code = as.character(pre_rgnlztn_hq_mech_code))
+
+# em<-read_csv("PCD FY21Q2_QC Round 1_PSNUxIM_Haiti.Kenya_20210419.csv")%>% 
+#   mutate(pre_rgnlztn_hq_mech_code = as.character(pre_rgnlztn_hq_mech_code))
+
 
 glimpse(df)
 glimpse(df1)
@@ -53,4 +57,5 @@ unique(netnew$standardizeddisaggregate)
 # Combine all subset datasets
 fdf<-bind_rows(txcurr, txpvls, pmtctart, netnew, lab)
 
-write_tsv(fdf, "Data/EsMozPanoQC20210216", na = " ")
+write_tsv(fdf, "MosEswatini_FY21Q2i", na = " ")
+
